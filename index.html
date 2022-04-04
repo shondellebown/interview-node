@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <title>
+          Node Interview
+        </title>
+        <script type="text/javascript">
+          $(document).ready(function() {
+              $.ajax({
+                  type: "GET",
+                  url: "http://127.0.0.1:8080/api",
+                  contentType: 'application/json',
+                  success: function(users) {
+                    $("#root").append(
+                        "<div class='table-header'>" +
+                          "<div class='firstname'>First Name</div>" + 
+                          "<div class='surname'>Surname</div>" +
+                          "<div class='email'>Email</div>" +
+                        "</div>");
+                      users.forEach(user => {
+                        $("#root").append(
+                        "<div class='table'>" +
+                          "<div class='firstname'>" + user.firstname + "</div>" + 
+                          "<div class='surname'>" + user.surname + "</div>" +
+                          "<div class='email'>" + user.email + "</div>" +
+                        "</div>");
+                      })
+                  },
+              });
+          });
+        </script>
+    </head>
+    <body>
+      <div id="root"></div>
+    </body>
+</html>
