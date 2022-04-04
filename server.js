@@ -3,17 +3,11 @@ const Path = require('path');
 
 const app = Express();
 
-app.get(
-  '/',
-  (req, res) => res.sendFile(Path.resolve(__dirname, 'index.html')),
-);
+//Add a get call to '/' that returns "Path.resolve(__dirname, 'index.html')"
 
-app.get(
-  '/style.css',
-  (req, res) => res.sendFile(Path.resolve(__dirname, 'style.css')),
-);
+//Add a get call to '/style.css' that returns "Path.resolve(__dirname, 'style.css')"
 
-//Add a get call to the API file
+//Add a get call to '/api' that returns the content of the api.js output
 
 app.listen(
     8080,
