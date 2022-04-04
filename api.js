@@ -4,8 +4,9 @@ const Path = require('path');
 const families = JSON.parse(FileSystem.readFileSync(Path.resolve(__dirname, 'families.json'), 'utf8'));
 const members = JSON.parse(FileSystem.readFileSync(Path.resolve(__dirname, 'members.json'), 'utf8'));
 
-module.exports=({
-  handler: (req, res) => {
-    //Return a list combining members with their family email address
-  },
-});
+function getUsers() {
+}
+
+module.exports = {
+  getUsers: getUsers,
+}

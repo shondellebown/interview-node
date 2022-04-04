@@ -1,13 +1,25 @@
-const Express = require('express');
+const API = require('./api');
+const express = require('express');
 const Path = require('path');
 
-const app = Express();
+const app = express();
+app.use(express.json());
 
-//Add a get call to '/' that returns "Path.resolve(__dirname, 'index.html')"
+app.get(
+  '/',
+  (req, res) => res.sendFile(Path.resolve(__dirname, 'index.html')),
+);
 
-//Add a get call to '/style.css' that returns "Path.resolve(__dirname, 'style.css')"
+app.get(
+  '/style.css',
+  (req, res) => {
+    res.status = 200;
+    res.contentType = 'text/css';
+    res.sendFile(Path.resolve(__dirname, 'style.css'))
+  },
+);
 
-//Add a get call to '/api' that returns the content of the api.js output
+//Add a get call to return the content of the API getUsers method
 
 app.listen(
     8080,
